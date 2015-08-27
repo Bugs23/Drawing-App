@@ -1,22 +1,35 @@
 body {
-	background: #384047;
+	background: #58595B;
 	font-family: sans-serif;
 }
+
 canvas {
 	background: #fff;
 	display: block;
 	margin: 50px auto 10px;
-	border-radius: 5px;
-	box-shadow: 0 4px 0 0 #222;
-	cursor: url(../img/cursor.png), crosshair;
 }
+
+canvas, button, .selected {
+	box-shadow: 0 4px 0 0 #222;
+}
+
+canvas, 
+.controls, 
+ul li, 
+#revealColorSelect, 
+#eraseCanvas,
+#colorSelect,
+#newColor {
+	border-radius: 5px;
+}
+
 .controls {
 	min-height: 60px;
 	margin: 0 auto;
 	width: 600px;
-	border-radius: 5px;
 	overflow: hidden;
 }
+
 ul {
 	list-style:none;
 	margin: 0;
@@ -26,70 +39,73 @@ ul {
 	text-align: center;
 }
 
-ul li, #newColor {
-	display:block;
-	height: 54px;
-	width: 54px;
-	border-radius: 60px;
-	cursor: pointer;
-	border: 0;
-	box-shadow: 0 3px 0 0 #222;
-  background-color: black;
-}
-
 ul li {
+	display:block;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	border: 5px solid;
 	display: inline-block;
-	margin: 0 5px 10px;
+	margin: 0 15px 10px;
 }
 
 .red {
-	background: #fc4c4f;
+	border-color: #fc4c4f;
 }
 
 .blue {
-	background: #4fa3fc;
+	border-color: #4fa3fc;
 }
 
 .yellow {
-	background: #ECD13F;
+	border-color: #ECD13F;
 }
 
 .selected {
-	border: 7px solid #fff;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 }
+
+.main_buttons {
+	text-align: center;
+	width: 400px;
+	margin: 0 auto;
+}
+
 button {
-	background: #68B25B;
-	box-shadow: 0 3px 0 0 #6A845F;
+	display: inline-block;
+	background: none;
+	border: 1px solid #fff;
 	color: #fff;
 	outline: none;
 	cursor: pointer;
-	text-shadow: 0 1px #6A845F;
-	display: block;
 	font-size: 16px;
 	line-height: 40px;
 }
-#revealColorSelect {
-	border: none;
-	border-radius: 5px;
-	margin: 10px auto;
-	padding: 5px 20px;
+
+#revealColorSelect, #eraseCanvas {
+	margin: 10px;
+	padding: 5px;
 	width: 160px;
 }
 
-/* New Color Palette */
+
+
+/*************************************
+New Color Palette
+*************************************/
+
 #colorSelect {
-	background: #fff;
-	border-radius: 5px;
+	border: 1px solid #fff;
 	clear: both;
-	margin: 20px auto 0;
+	margin: 20px 0 15px 45px;
 	padding: 10px;
 	width: 305px;
 	position: relative;
-		
 	display:none;
+	box-shadow: 0 4px 0 0 #222;
 }
+
 #colorSelect:after {
 	bottom: 100%;
 	left: 50%;
@@ -108,34 +124,57 @@ button {
 #newColor {
 	width: 80px;
 	height: 80px;
-	border-radius: 3px;
-	box-shadow: none;
+	border: 1px solid #fff;
 	float: left;
-	border: none;
 	margin: 10px 20px 20px 10px;
 
 }
+
 .sliders p {
 	margin: 8px 0;
 	vertical-align: middle;
 }
+
 .sliders label {
 	display: inline-block;
 	margin: 0 10px 0 0;
 	width: 35px;
 	font-size: 14px;
-	color: #6D574E;
+	color: #fff;
 }
+
 .sliders input {
 	position: relative;
 	top: 2px;
 }
+
 #colorSelect button {
 	border: none;
-	border-top: 1px solid #6A845F;
-	border-radius: 0 0 5px 5px;
+	border-top: 1px solid #fff;
+	box-shadow: none;
 	clear: both;
 	margin: 10px -10px -7px;
 	padding: 5px 10px;
 	width: 325px;
+}
+
+
+
+/*************************************
+MEDIA QUERIES
+*************************************/
+
+@media (max-width: 668px) {
+	canvas {
+		width: 400px;
+		height: 300px;
+	}
+
+	.controls {
+		width: 400px;
+	}
+
+	#colorSelect {
+		margin: 20px auto 0;
+	}
 }
